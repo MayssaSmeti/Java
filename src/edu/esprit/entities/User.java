@@ -25,6 +25,19 @@ public class User {
     public User() {
     }
 
+    public User(int id, String email, String nom, String prenom, int cin, String adresse, int num_tel, String roles) {
+        this.id = id;
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+       
+        this.cin = cin;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.roles = roles;
+    }
+    
+
     public User(String email, String nom, String prenom, String password, int cin, String adresse, int num_tel, String roles) {
         this.email = email;
         this.nom = nom;

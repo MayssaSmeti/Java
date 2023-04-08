@@ -29,7 +29,17 @@ public class UserCrud {
         cnx2 = MyConnection.getInstance().getCnx(); 
                 
     }
-    
+     public void supprimerUtilisateur(User user) {
+        try {
+            String requete="delete from user where id=?";
+            PreparedStatement pst = cnx2.prepareStatement(requete);
+            pst.setInt(1,user.getId());
+            pst.executeUpdate();
+           
+            System.out.println("Utlisateur est supprimée");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+    }}
     
     public void ajouterUtilisateur ()//insertion des objets d'une maniere statique 
     {
@@ -54,7 +64,8 @@ public class UserCrud {
         try //ajout dynamiqque
         {
             String requete2="INSERT INTO user (`email` ,` nom` ,` prenom`, `password` ,` cin` ,` adresse`,` num_tel` ,` roles`)"+" VALUES (?,?,?,?,?,?,?,?) " ;
-            PreparedStatement  pst= cnx2.prepareStatement(requete2) ; //objet dedie pour les objet dynamique //statement est long 
+            PreparedStatement  pst= cnx2.prepareStatement(requete2) ; //objet dedie pour les objet dynamique //statement est long  //PreparedStatemt : envoie une requête sans
+                                                                       //paramètres à la base de données
             
             pst.setString(1,u.getEmail());
             pst.setString(2, u.getNom());
@@ -80,7 +91,8 @@ public class UserCrud {
 
         try {
             String requete3="SELECT * FROM user" ;
-            Statement st = cnx2.createStatement();
+            Statement st = cnx2.createStatement(); //L'interface Statement possède les méthodes
+                                                     //nécessaires pour réaliser les requêtes sur la base
             ResultSet rs = st.executeQuery(requete3);
             while (rs.next())
             {
@@ -123,18 +135,6 @@ public class UserCrud {
               }
     }
     
-      //public void supprimerUtilisateur(int id ) {
-        //try {
-            //User u ; 
-            //String requete4="DELETE FROM  User WHERE  id=?";
-            //PreparedStatement  pst= new MyConnection().getCnx().prepareStatement(requete4) ; //objet dedie pour les objet dynamique //statement est long 
-          ///  pst.setInt(1,User.getId());
-        //    pst.executeUpdate();
-           
-      //      System.out.println("Utlisateur est supprimée");
-    //        } catch (SQLException ex) {
-  //              System.out.println(ex.getMessage());
-    //}}
       
       
    public void modifierUtilisateur(User u) {
