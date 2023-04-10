@@ -21,13 +21,13 @@ public class Main {
         MyConnection mc2 = MyConnection.getInstance() ; 
         System.out.println(mc.hashCode()+"-"+mc2.hashCode());
         UserCrud pcd = new UserCrud () ;
-        User u2 = new User("maissau@gmail.com", "loulo", "edi", "kkkkk",22222, "hjbbfb", 0, "hdfjhj") ; 
-        //pcd.ajouterUtilisateur2(u2);
-         //pcd.modifierUtilisateur(u2);
-         pcd.SupprimerUtilisateur(63);
-       // User u3 = new User(65,"loul@gmail.com", "loulo", "edii",22222, "hjbbfb", 0, "hdfjhj") ; 
+        User u2 = new User("maissaup@gmail.com", "lloulo", "edi", "kkkkk",22222, "hjbbfb", 0, "hdfjhj") ; 
+       // pcd.ajouterUtilisateur2(u2);
+        /// pcd.modifierUtilisateur(u2);
+         //pcd.supprimerUtilisateur(u2);
+       User u3 = new User(65,"loul@gmail.com", "loulo", "edii",22222, "hjbbfb", 0, "hdfjhj") ; 
 
-        // pcd.modifierUtilisateur(u3);
+        pcd.modifierUtilisateur(u3);
 
 
         System.out.println(pcd.afficherUtilisateurs());

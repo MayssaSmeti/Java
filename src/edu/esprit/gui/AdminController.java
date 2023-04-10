@@ -59,23 +59,27 @@ public class AdminController implements Initializable {
     private Button btnsupprimer;
     @FXML
     private Button btnmodifier;
-    @FXML
-    private Button Recherche;
     
-      private Connection cnx;
-    private Statement statement;
-    private PreparedStatement prepare;
-    private ResultSet result;
-     User user = null ; 
+     
     @FXML
     private TableView<User> tableviewUser;
     @FXML
     private TableColumn<?, ?> roles;
+    @FXML
+    private Button actualiser;
+    @FXML
+    private Button ajouter;
     /**
 
     /**
      * Initializes the controller class.
      */
+    
+    private Connection cnx;
+    private Statement statement;
+    private PreparedStatement prepare;
+    private ResultSet result;
+     User user = null ; 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -83,6 +87,7 @@ public class AdminController implements Initializable {
     }    
 
     
+    @FXML
       public void showRec() //affiche une liste utilisateur fe table view 
       {
        
@@ -129,14 +134,14 @@ public class AdminController implements Initializable {
 
     @FXML
     private void suprimer(ActionEvent event) {
-         UserCrud u=new UserCrud();
-   //       commandeplat t = tvcommande.getSelectionModel().getSelectedItem();
-        User user = (User) tableviewUser.getSelectionModel().getSelectedItem();
-      //  Plat p = new Plat(c.getreference());
-        u.supprimerUtilisateur(user);
-        refrech();
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Travel Me :: Error Message");
+                UserCrud u=new UserCrud();
+  
+               User user = (User) tableviewUser.getSelectionModel().getSelectedItem();
+    
+                u.supprimerUtilisateur(user);
+                refresh(); 
+                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("4 roues assurrances  :: Succes Message ");
                 alert.setHeaderText(null);
                 alert.setContentText("Utilisateur supprimé");
                 alert.showAndWait(); 
@@ -144,28 +149,65 @@ public class AdminController implements Initializable {
 
     @FXML
     private void modifier(ActionEvent event) {
-         user = (User) tableviewUser.getSelectionModel().getSelectedItem();
-                            FXMLLoader loader = new FXMLLoader ();
-                            loader.setLocation(getClass().getResource("/Gui/ModifierUser.fxml"));
+                            user = (User) tableviewUser.getSelectionModel().getSelectedItem(); //recuperation du utilisateur selectionné 
+                            FXMLLoader loader = new FXMLLoader ();//creation de FXMLLoader 
+                            loader.setLocation(getClass().getResource("ModifierUtilisateur.fxml")); //emplacement du fichier fxml 
                             try {
                                 loader.load();
                             } catch (Exception ex) {
                                System.err.println(ex.getMessage());
                             }
                             
-                           // ModifierUserController muc = loader.getController();
-                           // mrc.setUpdate(true);
-                          //  muc.setTextFields(user);
-                            Parent parent = loader.getRoot();
-                            Stage stage = new Stage();
+                           ModifierUtilisateurController muc = loader.getController(); //recuperation deu controller de modification 
+                           //mrc.setUpdate(true);
+                           muc.setTextFields(user); //bech taabili les text field eli hachty bihom 
+                           //tkhajlk fenetre mtaa modification 
+                            Parent parent = loader.getRoot(); 
+                            Stage stage = new Stage(); //affichage de la fenetre 
                             stage.setScene(new Scene(parent));
                             stage.initStyle(StageStyle.UTILITY);
                             stage.show();
                             showRec();
     }
 
-    @FXML
-    private void refrech() {
+    private void refresh() //mettre a jour du continue du tableView 
+    {
+       ObservableList<User> list = getUserList();
+         id.setCellValueFactory(new PropertyValueFactory<>("id"));
+         cin.setCellValueFactory(new PropertyValueFactory<>("CIN"));
+         email.setCellValueFactory(new PropertyValueFactory<>("email"));
+         numtel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
+         Nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+         prenom.setCellValueFactory(new PropertyValueFactory<>("prennom"));
+         adresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+         roles.setCellValueFactory(new PropertyValueFactory<>("roles"));
+
+      
+         tableviewUser.setItems(list);
+       
     }
+
+    @FXML
+    private void Ajouter(ActionEvent event) {
+          user = (User) tableviewUser.getSelectionModel().getSelectedItem(); //recuperation du utilisateur selectionné 
+                            FXMLLoader loader = new FXMLLoader ();//creation de FXMLLoader 
+                            loader.setLocation(getClass().getResource("Ajouter.fxml")); //emplacement du fichier fxml 
+                            try {
+                                loader.load();
+                            } catch (Exception ex) {
+                               System.err.println(ex.getMessage());
+                            }
+                            
+                           AjouterController muc = loader.getController(); //recuperation deu controller de modification 
+                           //mrc.setUpdate(true);
+                          
+                            Parent parent = loader.getRoot(); 
+                            Stage stage = new Stage(); //affichage de la fenetre 
+                            stage.setScene(new Scene(parent));
+                            stage.initStyle(StageStyle.UTILITY);
+                            stage.show();
+                            showRec();
+    }
+
     
 }

@@ -123,7 +123,7 @@ public class UserCrud {
    
      
    
-      public void SupprimerUtilisateur(int id) {
+      public void SupprimerUtilisateurid(int id) {
 			try
     { 
         Statement st= cnx2.createStatement() ; //j'ai obtenu l'objet connexion par cerre ligne 

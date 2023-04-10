@@ -48,6 +48,10 @@ public class User {
         this.num_tel = num_tel;
         this.roles = roles;
     }
+
+    public User(String email, String nom, String prenom, Integer cin, String adresse, Integer num_tel, String roles) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
 
    
