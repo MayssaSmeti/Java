@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="edu.esprit.gui.SignInController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.SignInController">
    <children>
       <Label alignment="CENTER" layoutX="28.0" layoutY="252.0" prefHeight="30.0" prefWidth="246.0" styleClass="hypertext-design" stylesheets="@design.css" text="4 Roues Assurrances" textAlignment="CENTER">
          <opaqueInsets>
@@ -55,6 +54,11 @@
       </TextField>
       <Button fx:id="btnconnexion" alignment="CENTER" layoutX="313.0" layoutY="269.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="186.0" styleClass="login-bg" stylesheets="@design.css" text="Se Connecter " textAlignment="CENTER" />
       <Label fx:id="fxreset" alignment="CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="314.0" onDragDetected="#ResetPassword" prefHeight="18.0" prefWidth="158.0" text="Mot de Passe oublié ?" textAlignment="CENTER" textFill="#610c0c" />
-      <Label fx:id="fxinscrit" alignment="CENTER" contentDisplay="CENTER" layoutX="274.0" layoutY="340.0" onDragDetected="#Inscription" prefHeight="18.0" prefWidth="314.0" text="Vous n'avez pas un Compte ? Insrivez-Vous ! " textAlignment="CENTER" textFill="#5e0909" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="274.0" layoutY="340.0" prefHeight="18.0" prefWidth="314.0" text="Vous n'avez pas un Compte ? Insrivez-Vous ! " textAlignment="CENTER" textFill="#5e0909" />
+      <Button fx:id="btninscrit" alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="358.0" mnemonicParsing="false" onAction="#inscription" prefHeight="29.0" prefWidth="179.0" styleClass="textfield-design" stylesheets="@design.css" text="Créer un Compte !" textFill="#401212">
+         <font>
+            <Font name="Book Antiqua" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
