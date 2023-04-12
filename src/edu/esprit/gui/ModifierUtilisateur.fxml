@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -17,7 +18,7 @@
       </Label>
       <ImageView fitHeight="83.0" fitWidth="125.0" layoutX="138.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Downloads/Logo.png" />
+            <Image url="@../img/Logo.png" />
          </image>
       </ImageView>
       <Button fx:id="btnModifier" layoutX="123.0" layoutY="525.0" mnemonicParsing="false" onAction="#Modifieruser" prefHeight="30.0" prefWidth="158.0" styleClass="button-design" stylesheets="@design.css" text="Modifier " textFill="#7b756d" />
@@ -58,5 +59,6 @@
          </font>
       </TextField>
       <TextField fx:id="fxid" layoutX="89.0" layoutY="164.0" prefHeight="26.0" prefWidth="214.0" promptText="ID..." styleClass="textfield-design" stylesheets="@design.css" />
+      <FontAwesomeIconView fill="#7c7cbf" glyphName="CLOSE" layoutX="350.0" layoutY="31.0" onMouseClicked="#close" size="20" textAlignment="CENTER" wrappingWidth="26.74289321899414" />
    </children>
 </AnchorPane>

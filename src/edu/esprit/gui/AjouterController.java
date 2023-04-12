@@ -7,18 +7,25 @@ package edu.esprit.gui;
 
 import edu.esprit.entities.User;
 import edu.esprit.services.UserCrud;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -43,6 +50,8 @@ public class AjouterController implements Initializable {
     private TextField fxroles;
     @FXML
     private Button btnaj;
+    @FXML
+    private PasswordField fxpassword;
 
     /**
      * Initializes the controller class.
@@ -54,17 +63,31 @@ public class AjouterController implements Initializable {
 
     @FXML
     private void ajouter(ActionEvent event) {
-         if (fxnom.getText().isEmpty() || fxprenom.getText().isEmpty()||fxemail.getText().isEmpty() || fxcin.getText().isEmpty()|| fxnum.getText().isEmpty() || fxadresse.getText().isEmpty()||fxroles.getText().isEmpty() ) {
-            Alert a = new Alert(Alert.AlertType.ERROR, "il faut remplir tous les champs ! ", ButtonType.OK);
+        
+           if (fxnom.getText().isEmpty() || fxprenom.getText().isEmpty()||fxemail.getText().isEmpty() || fxcin.getText().isEmpty()|| fxnum.getText().isEmpty() || fxadresse.getText().isEmpty()||fxroles.getText().isEmpty() ) {
+            Alert a = new Alert(Alert.AlertType.ERROR, "Champs invalides ! ", ButtonType.OK);
             a.showAndWait();
-        } else {
-             UserCrud us= new UserCrud();
-             User p = new User(fxemail.getText(), fxnom.getText(), fxprenom.getText(), fxcin, fxadresse.getText(), fxnum, fxroles.getText());
-             us.ajouterUtilisateur2(p);
-             Alert a = new Alert(Alert.AlertType.INFORMATION, "user added !", ButtonType.OK);
-             a.showAndWait();
+           
+        } else if (fxpassword.getText().length()<8)
+        {
+             Alert a = new Alert(Alert.AlertType.ERROR, "Mot de passe doit etre >8 caractéres !)", ButtonType.OK);
+              a.showAndWait();
         }
+          else {
+             
+                  UserCrud us = new UserCrud();
+                  User p = new User(fxemail.getText(), fxnom.getText(), fxprenom.getText(), fxpassword.getText(), 0, fxadresse.getText(), 0, fxroles.getText());
+                  Alert a = new Alert(Alert.AlertType.INFORMATION, "Utilisateur ajouté(e) avec succes !", ButtonType.OK);
+                  a.showAndWait();
+                  
+                 
+        }
+    }
 
+    @FXML
+    private void close(MouseEvent event) {
+         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 
 

@@ -6,6 +6,9 @@
  */
 package edu.esprit.entities;
 
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
 /**
  *
  * @author Mayssa
@@ -30,12 +33,12 @@ public class User {
         this.email = email;
         this.nom = nom;
         this.prenom = prenom;
-       
         this.cin = cin;
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.roles = roles;
     }
+    
     
 
     public User(String email, String nom, String prenom, String password, int cin, String adresse, int num_tel, String roles) {
@@ -49,9 +52,13 @@ public class User {
         this.roles = roles;
     }
 
-    public User(String email, String nom, String prenom, Integer cin, String adresse, Integer num_tel, String roles) {
+    public User(TextField fxemail, TextField fxnom, TextField fxprenom, PasswordField fxpassword, Integer cin, TextField fxadresse, Integer num_tel, TextField fxroles) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+  
+
+  
    
 
    

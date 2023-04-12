@@ -8,6 +8,7 @@ package edu.esprit.gui;
 import edu.esprit.entities.User;
 import edu.esprit.services.UserCrud;
 import edu.esprit.utilis.MyConnection;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -67,8 +70,6 @@ public class AdminController implements Initializable {
     private TableColumn<?, ?> roles;
     @FXML
     private Button actualiser;
-    @FXML
-    private Button ajouter;
     /**
 
     /**
@@ -187,9 +188,8 @@ public class AdminController implements Initializable {
        
     }
 
-    @FXML
     private void Ajouter(ActionEvent event) {
-          user = (User) tableviewUser.getSelectionModel().getSelectedItem(); //recuperation du utilisateur selectionné 
+        
                             FXMLLoader loader = new FXMLLoader ();//creation de FXMLLoader 
                             loader.setLocation(getClass().getResource("Ajouter.fxml")); //emplacement du fichier fxml 
                             try {
@@ -208,6 +208,33 @@ public class AdminController implements Initializable {
                             stage.show();
                             showRec();
     }
+
+    @FXML
+    private void Ajouter(MouseEvent event) {
+        
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("Ajouter.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+        
+    }
+
+    void setNom(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setPrenom(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 
     
 }
