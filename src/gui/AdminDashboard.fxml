@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminDashboardControler">
+   <children>
+      <HBox prefHeight="66.0" prefWidth="1366.0" style="-fx-background-color: #ff7c03;" />
+      <VBox alignment="TOP_CENTER" layoutY="66.0" prefHeight="634.0" prefWidth="235.0" style="-fx-background-color: #fff2f0;" stylesheets="@../assets/style/offreStyle.css">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitle" text="Offre" translateX="-70.0" translateY="100.0" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../assets/style/offreStyle.css" translateY="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/cloud-computing.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="List" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_addOffreCard" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../assets/style/offreStyle.css" translateY="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/cloud-computing.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Add" />
+               </children>
+            </HBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitle" text="Contrat" translateX="-70.0" translateY="120.0" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeContrat" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../assets/style/offreStyle.css" translateY="130.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/cloud-computing.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="List" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_addContratCard" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../assets/style/offreStyle.css" translateY="130.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/cloud-computing.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Add" />
+               </children>
+            </HBox>
+         </children></VBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="80.0" styleClass="logoContainer" stylesheets="@../assets/style/offreStyle.css" translateX="30.0" translateY="30.0">
+         <children>
+            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/img/logo%202%20png.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Pane fx:id="content_area" layoutX="235.0" layoutY="66.0" prefHeight="634.0" prefWidth="1134.0" style="-fx-background-color: #fff;" />
+   </children>
+</AnchorPane>
